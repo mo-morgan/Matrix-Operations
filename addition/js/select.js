@@ -8,6 +8,8 @@ function setMatrices() {
     makeOperation(plusOrMinus);
     makeTable2(row, column);
     makeSubmit();
+//    test
+    document.getElementById("matrixTable").innerHTML += '<p id="test"></p>';
 }
 
 function makeTable(row, column, tableID) {
@@ -40,6 +42,6 @@ function makeOperation(plusOrMinus) {
 }
 
 function makeSubmit() {
-    const submit = '<button type="submmit">Submit</button>';
+    const submit = '<button type="button" onclick=showTableData()>Submit</button>';
     document.getElementById("matrixTable").innerHTML += '<br>' + submit;
 }
