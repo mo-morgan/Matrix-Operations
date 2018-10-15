@@ -4,23 +4,25 @@ function setMatrices() {
     const plusOrMinus = document.getElementById("plusMinus").value;
     //clearing and setting matrices
     document.getElementById("matrixTable").innerHTML = '';
+    document.getElementById("solution").innerHTML = '';
     makeTable1(row, column);
     makeOperation(plusOrMinus);
     makeTable2(row, column);
     makeSubmit();
-//    test
-    document.getElementById("matrixTable").innerHTML += '<p id="test"></p>';
 }
 
 function makeTable(row, column, tableID) {
     document.getElementById("enter").innerHTML = "Please enter your matrix values: ";
     const theader = '<table align="center" id=' + tableID + '>';
     let tbody = '';
+    let boxID;
     for(let i=0; i<row; i++) {
         tbody += '<tr>';
         for(let j=0; j<column; j++) {
+            boxID = '';
+            boxID += 'r' + i + 'c' + j;
             tbody += '<td>';
-            tbody += '<input type="text" size="2" maxlength="20">';
+            tbody += '<input type="text" size="2" maxlength="20" class="required" id=' + boxID + tableID + '>';
             tbody += '</td>';
         }
         tbody += '</tr>\n';
@@ -42,6 +44,6 @@ function makeOperation(plusOrMinus) {
 }
 
 function makeSubmit() {
-    const submit = '<button type="button" onclick=showTableData()>Submit</button>';
+    const submit = '<button type="button" onclick=validateForm()>Submit</button>';
     document.getElementById("matrixTable").innerHTML += '<br>' + submit;
 }
