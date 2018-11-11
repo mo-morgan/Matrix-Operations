@@ -2,7 +2,7 @@ let isValid;
 
 function validateForm() {
     isValid = true;
-    containsAllRequiredInputs()
+    containsAllRequiredInputs();
     if(!isValid) {
         return;
     }
@@ -11,8 +11,8 @@ function validateForm() {
 }
 
 function containsAllRequiredInputs() {
-    $('.required').each(function () {
-        if($.trim($(this).val()).length==0) {
+    $('.required').each(function () {// isNaN only checks for number, need regex to support +-/*()[]^ operators
+        if($.trim($(this).val()).length==0|| isNaN($.trim($(this).val()))) {
             isValid = false;
             $(this).css({
                 "border": "1px solid red",
@@ -40,7 +40,7 @@ function addTableValues() {
     const rows = document.getElementById("table1").rows.length;
     const columns = document.getElementById("table1").rows[0].cells.length;
 
-    const theader = '<table align="center" id="tableSolution">';
+    const theader = '<table align="center" id="tableSolution" class="matrix">';
     let tbody = '';
     for(i=0; i<rows; i++) {
         tbody += '<tr>';
@@ -58,4 +58,7 @@ function addTableValues() {
     }
     const tfooter = '</table>';
     document.getElementById("solution").innerHTML += theader + tbody + tfooter;
+function mathOperation(value) {
+
+    return 0;
 }
