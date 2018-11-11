@@ -58,6 +58,8 @@ function addTableValues() {
     }
     const tfooter = '</table>';
     document.getElementById("solution").innerHTML += theader + tbody + tfooter;
+}
+
 function mathOperation(value) {
 
     return 0;
